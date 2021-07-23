@@ -12,8 +12,13 @@ const getAllPrices = () => {
   return sqliteKnex("swsCompanyPriceClose").select("*");
 };
 
+const getCompanyPrices = (id) => {
+  return sqliteKnex("swsCompanyPriceClose").select("*").where("company_id", id);
+};
+
 module.exports = {
   getAllCompanies,
   getAllScores,
-  getAllPrices
+  getAllPrices,
+  getCompanyPrices,
 };

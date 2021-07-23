@@ -22,6 +22,11 @@ app.get("/prices", async (req, res) => {
   res.status(200).json({ prices });
 });
 
+app.get("/prices/:id", async (req, res) => {
+  const prices = await companyDb.getCompanyPrices(req.params.id);
+  res.status(200).json({ prices });
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
