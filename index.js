@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 4000;
 
-const companyDb = require("./db/company");
+const companyDb = require("./db/sws");
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
