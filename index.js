@@ -1,9 +1,12 @@
 const express = require("express");
+const cors = require("cors") 
+
 const app = express();
 const port = process.env.PORT || 4000;
 
 const companyDb = require("./db/sws");
 
+app.use(cors())
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
@@ -19,6 +22,11 @@ app.get("/scores", async (req, res) => {
 
 app.get("/prices", async (req, res) => {
   const prices = await companyDb.getAllPrices();
+  res.status(200).json({ prices });
+});
+
+app.get("/prices/:id", async (req, res) => {
+  const prices = await companyDb.getCompanyPrices(req.params.id);
   res.status(200).json({ prices });
 });
 
