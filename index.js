@@ -21,7 +21,7 @@ app.get("/scores", async (req, res) => {
 });
 
 app.get("/scores/:companyScoreId", async (req, res) => {
-  const scores = await companyDb.getCompanyScore(req.params.companyScoreId);
+  const companyScore = await companyDb.getCompanyScore(req.params.companyScoreId);
   res.status(200).json({ companyScore });
 })
 
@@ -31,7 +31,7 @@ app.get("/prices", async (req, res) => {
 });
 
 app.get("/prices/:companyPriceId", async (req, res) => {
-  const prices = await companyDb.getCompanyPrices(req.params.companyPriceId);
+  const companyPrices = await companyDb.getCompanyPrices(req.params.companyPriceId);
   res.status(200).json({ companyPrices });
 });
 

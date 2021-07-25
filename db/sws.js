@@ -8,8 +8,8 @@ const getAllScores = () => {
   return sqliteKnex("swsCompanyScore").select("*");
 };
 
-const getCompanyScore = (score_id) => {
-  return sqliteKnex("swsCompanyScore").select("*").where("id", score_id);
+const getCompanyScore = (scoreId) => {
+  return sqliteKnex("swsCompanyScore").select("*").where("id", scoreId);
 };
 
 const getAllPrices = () => {
