@@ -20,14 +20,19 @@ app.get("/scores", async (req, res) => {
   res.status(200).json({ scores });
 });
 
+app.get("/scores/:companyScoreId", async (req, res) => {
+  const scores = await companyDb.getCompanyScore(req.params.companyScoreId);
+  res.status(200).json({ companyScore });
+})
+
 app.get("/prices", async (req, res) => {
   const prices = await companyDb.getAllPrices();
   res.status(200).json({ prices });
 });
 
-app.get("/prices/:id", async (req, res) => {
-  const prices = await companyDb.getCompanyPrices(req.params.id);
-  res.status(200).json({ prices });
+app.get("/prices/:companyPriceId", async (req, res) => {
+  const prices = await companyDb.getCompanyPrices(req.params.companyPriceId);
+  res.status(200).json({ companyPrices });
 });
 
 app.listen(port, () => {
