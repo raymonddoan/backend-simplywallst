@@ -8,6 +8,10 @@ const getAllScores = () => {
   return sqliteKnex("swsCompanyScore").select("*");
 };
 
+const getCompanyScore = (scoreId) => {
+  return sqliteKnex("swsCompanyScore").select("*").where("id", scoreId);
+};
+
 const getAllPrices = () => {
   return sqliteKnex("swsCompanyPriceClose").select("*");
 };
@@ -19,6 +23,7 @@ const getCompanyPrices = (id) => {
 module.exports = {
   getAllCompanies,
   getAllScores,
+  getCompanyScore,
   getAllPrices,
   getCompanyPrices,
 };
